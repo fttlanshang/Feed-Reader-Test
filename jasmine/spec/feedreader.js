@@ -76,14 +76,12 @@ $(function() {
          * a single .entry element within the .feed container.
          */
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
-        }, 10000);
+            loadFeed(0, done);
+        });
         it('should at least has a single entry', function(done) {
             expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
-        }, 10000);
+        });
 
     });
     describe('New Feed Selection', function() {
@@ -97,13 +95,13 @@ $(function() {
                 oldContent = $('.feed').html();
                 done();
             });
-        }, 10000);
+        });
         it('will change the content', function(done) {
             loadFeed(1, function() {
                 newContent = $('.feed').html();
                 expect(newContent).not.toEqual(oldContent);
                 done();
             });
-        }, 20000);
+        });
     });
 }());
